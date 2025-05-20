@@ -1,0 +1,33 @@
+.tag-board {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  font-family: "Arial", sans-serif;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tag-card {
+  background: #e4e4e4;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  min-width: 160px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
