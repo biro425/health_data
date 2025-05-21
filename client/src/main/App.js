@@ -1,7 +1,11 @@
 import "./App.css";
 import axios from "axios";
 import { useState } from "react";
-import Routing from "./components/Routing";
+import Routing from "./components/Routing";import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Hospital from '../hospital/hospital';
+import Profile from '../profile/Profile';
+import Help from '../help/Help';
+
 function App() {
   const [chatLog, setChatLog] = useState([]);
   const [input, setInput] = useState("");
@@ -55,56 +59,37 @@ function App() {
   };
 
   return (
-    <div className="main-container">
-      <header className="main-header">
-        <div className="logo">logo</div>
-        <nav className="main-nav">
-          <a href="/">홈</a>
-          <a href="/hospital">주변 병원 찾기</a>
-          <a href="/menu">메뉴</a>
-          <a href="/profile">프로필</a>
-          <a href="/help">도움말</a>
-        </nav>
-        <button className="login-btn">로그인</button>
-      </header>
-
-      <main className="chat-container">
-        <div className="chat-box">
-          {chatLog.length === 0 && <Routing />}
-          {chatLog.map((msg, idx) => (
-            <div
-              key={idx}
-              className={`chat-bubble ${
-                msg.role === "user" ? "user" : "assistant"
-              }`}
-            >
-              {msg.content}
-            </div>
-          ))}
-          {isLoading && (
-            <div className="chat-bubble assistant">답변 생성 중...</div>
-          )}
-        </div>
-
-        <div className="symptom-box">
-          <input
-            className="symptom-input"
-            type="text"
-            placeholder="자신의 증상을 입력해보세요."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onCompositionStart={() => setIsComposing(true)}
-            onCompositionEnd={() => setIsComposing(false)}
-            onKeyUp={(e) => {
-              if (e.key === "Enter" && !isComposing) {
-                handleSubmit();
-              }
-            }}
-          />
-          <button className="symptom-btn" onClick={handleSubmit} />
-        </div>
-      </main>
-    </div>
+    <Router>
+      <div className="main-container">
+        <header className="main-header">
+          <div className="logo">logo</div>
+          <nav className="main-nav">
+            <Link to="/">홈</Link>
+            <Link to="/hospital">주변 병원 찾기</Link>
+            <Link to="/profile">프로필</Link>
+            <Link to="/help">도움말</Link>
+          </nav>
+          <button className="login-btn">로그인</button>
+        </header>
+        <main className="main-content">
+          <Routes>
+            <Route path="/hospital" element={<Hospital />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/help" element={<Help />} />
+            <Route path="/" element={
+              <div className="symptom-box">
+                <input
+                  className="symptom-input"
+                  type="text"
+                  placeholder="자신의 증상을 상세하게 적어주세요."
+                />
+                <button className="symptom-btn"></button>
+              </div>
+            } />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
