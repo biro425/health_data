@@ -1,0 +1,124 @@
+.profile-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: none;
+  padding: 60px 60px 40px 60px;
+  gap: 60px;
+}
+
+.profile-left {
+  flex: 0 0 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-img {
+  width: 300px;
+  height: 300px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.profile-username {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.profile-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #bbb;
+  padding: 28px 0 28px 0;
+  font-size: 1.35rem;
+}
+
+.profile-label {
+  width: 160px;
+  font-weight: bold;
+  color: #222;
+}
+
+.profile-value {
+  flex: 1;
+  color: #222;
+  word-break: break-all;
+}
+
+.profile-row .profile-label:last-child {
+  border-left: 1px solid #bbb;
+  margin-left: 40px;
+  padding-left: 40px;
+}
+
+.profile-btn-row {
+  border-bottom: none;
+  justify-content: flex-end;
+  padding-top: 40px;
+}
+
+.profile-edit-btn {
+  background: #6ee7d2;
+  color: #222;
+  border: none;
+  border-radius: 30px;
+  padding: 18px 90px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.profile-edit-btn:hover {
+  background: #40c0b3;
+  color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .profile-container {
+    flex-direction: column;
+    max-width: 98vw;
+    padding: 24px 10px 10px 10px;
+    gap: 20px;
+  }
+  .profile-left {
+    flex: none;
+    margin-bottom: 10px;
+  }
+  .profile-img {
+    width: 180px;
+    height: 180px;
+  }
+  .profile-username {
+    font-size: 2rem;
+  }
+  .profile-label {
+    width: 90px;
+  }
+  .profile-row .profile-label:last-child {
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+  .profile-edit-btn {
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    border-radius: 18px;
+  }
+}
