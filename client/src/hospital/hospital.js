@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./hosptial.css";
 
-const KAKAO_MAP_API_KEY = "72dc0c88c9cea428d20cfa497813deeb";
-const HOSPITAL_API_KEY = "IqUdfsSIo63fGghqFP%2By%2BFE4ZdXu2T%2FCw830X94Zrf2fT4XIkL%2FTMv7neOnQddWOlBrqHBmj2A03TtjWoSPsiA%3D%3D";
+const KAKAO_MAP_API_KEY = "KEY";
+const HOSPITAL_API_KEY = "KEY";
 
 function loadKakaoMapScript(callback) {
   if (window.kakao && window.kakao.maps) {
