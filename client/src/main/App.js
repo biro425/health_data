@@ -1,16 +1,16 @@
 import "./App.css";
 import axios from "axios";
 import { useState } from "react";
-import Routing from "./components/Routing";import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Hospital from '../hospital/hospital';
 import Profile from '../profile/Profile';
 import Help from '../help/Help';
+import Routing from "./components/Routing"; // Routing 컴포넌트 import
 
 function App() {
   const [chatLog, setChatLog] = useState([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isComposing, setIsComposing] = useState(false);
 
   const askGpt = async (content) => {
     const apiKey = "API_KEY_HERE";
@@ -71,46 +71,44 @@ function App() {
           </nav>
           <button className="login-btn">로그인</button>
         </header>
-
-        <main className="chat-container">
-        <div className="chat-box">
-          {chatLog.length === 0 && <Routing />}
-          {chatLog.map((msg, idx) => (
-            <div
-              key={idx}
-              className={`chat-bubble ${
-                msg.role === "user" ? "user" : "assistant"
-              }`}
-            >
-              {msg.content}
-            </div>
-          ))}
-          {isLoading && (
-            <div className="chat-bubble assistant">답변 생성 중...</div>
-          )}
-        </div>
-
+        <main className="main-content">
           <Routes>
             <Route path="/hospital" element={<Hospital />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/help" element={<Help />} />
             <Route path="/" element={
-              <div className="symptom-box">
-                <input
-                  className="symptom-input"
-                  type="text"
-                  placeholder="자신의 증상을 입력해보세요."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onCompositionStart={() => setIsComposing(true)}
-            onCompositionEnd={() => setIsComposing(false)}
-            onKeyUp={(e) => {
-              if (e.key === "Enter" && !isComposing) {
-                handleSubmit();
-              }
-            }}
-                />
-                <button className="symptom-btn" onClick={handleSubmit} />
+              <div>
+                <div className="symptom-box">
+                  <input
+                    className="symptom-input"
+                    type="text"
+                    placeholder="자신의 증상을 입력해보세요."
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyUp={(e) => {
+                      if (e.key === "Enter") {
+                        handleSubmit();
+                      }
+                    }}
+                  />
+                  <button className="symptom-btn" onClick={handleSubmit} />
+                </div>
+                <div className="chat-box">
+                  {chatLog.length === 0 && <Routing />}
+                  {chatLog.map((msg, idx) => (
+                    <div
+                      key={idx}
+                      className={`chat-bubble ${
+                        msg.role === "user" ? "user" : "assistant"
+                      }`}
+                    >
+                      {msg.content}
+                    </div>
+                  ))}
+                  {isLoading && (
+                    <div className="chat-bubble assistant">답변 생성 중...</div>
+                  )}
+                </div>
               </div>
             } />
           </Routes>
