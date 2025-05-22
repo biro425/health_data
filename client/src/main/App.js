@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Hospital from '../hospital/hospital';
 import Profile from '../profile/Profile';
 import Help from '../help/Help';
-import Routing from "./components/Routing"; // Routing 컴포넌트 import
+import Routing from "./components/Routing"; 
 
 function App() {
   const [chatLog, setChatLog] = useState([]);
