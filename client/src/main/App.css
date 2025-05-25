@@ -233,3 +233,51 @@ body {
     align-self: flex-end;
   }
 }
+.hospital-list {
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: aliceblue;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 8px;
+}
+
+.hospital-bubble {
+  background-color: #f2f2f2;
+  border-radius: 16px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #333;
+  max-width: 90%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  border: 1px solid #ddd;
+}
+
+.hospital-bubble:hover {
+  background-color: #e6f0ff;
+  border-color: #6aa6ff;
+}
+
+.hospital-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  gap: 12px;
+}
+
+.hospital-name {
+  font-weight: 600;
+  color: #222;
+}
+
+.hospital-tel,
+.hospital-distance,
+.hospital-addr {
+  color: #666;
+  font-weight: 400;
+}
