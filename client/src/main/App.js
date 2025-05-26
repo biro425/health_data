@@ -119,7 +119,9 @@ function App() {
     <Router>
       <div className="main-container">
         <header className="main-header">
-          <div className="logo">logo</div>
+          <div className="logo">
+            <img src="/LOGO.png" alt="logo" style={{ height: "40px" }} />
+          </div>
           <nav className="main-nav">
             <Link to="/">홈</Link>
             <Link to="/hospital">주변 병원 찾기</Link>
